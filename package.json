@@ -1,0 +1,29 @@
+{
+  "name": "d-pac.functions",
+  "version": "0.0.0",
+  "description": "Statistical and psychometic helper functions used in d-pac",
+  "homepage": "https://github.com/d-pac/d-pac.functions",
+  "author": {
+    "name": "d-pac",
+    "email": "info@d-pac.be",
+    "url": "http://www.d-pac.be"
+  },
+  "repository": "https://github.com/d-pac/d-pac.functions",
+  "main": "index.js",
+  "files": [
+    "lib",
+    "index.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "d-pac",
+    "statistics",
+    "psychometric"
+  ],
+  "license": "GPL-3.0",
+  "dependencies": {
+    "lodash": "^3.10.1"
+  }
+}
