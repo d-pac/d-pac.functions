@@ -1,3 +1,5 @@
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image]
+
 # d-pac.functions
 
 ## Installation
@@ -189,3 +191,11 @@ const list = [{v:1, se:4}, {v:2, se:2}, {v:3, se:0}, {v:5, se:0.45}, {v:8, se:3}
 const f = pm.reliabilityFunctor((item)=>item.v, (item)=>item.se);
 f(list); //0.05186688311688284
 ```
+
+
+[npm-url]: https://npmjs.org/package/d-pac.functions
+[npm-image]: https://badge.fury.io/js/d-pac.functions.svg
+[travis-url]: https://travis-ci.org/d-pac/d-pac.functions
+[travis-image]: https://travis-ci.org/d-pac/d-pac.functions.svg?branch=master
+[daviddm-url]: https://david-dm.org/d-pac/d-pac.functions.svg?theme=shields.io
+[daviddm-image]: https://david-dm.org/d-pac/d-pac.functions
