@@ -1,0 +1,32 @@
+{
+  "simple": {
+    "list": [
+      1,
+      2,
+      3,
+      5,
+      8
+    ],
+    "expected": 3.8
+  },
+  "accessor": {
+    "list": [
+      {
+        "value": 1
+      },
+      {
+        "value": 2
+      },
+      {
+        "value": 3
+      },
+      {
+        "value": 5
+      },
+      {
+        "value": 8
+      }
+    ],
+    "expected": 3.8
+  }
+}
