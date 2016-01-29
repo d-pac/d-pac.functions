@@ -1,0 +1,66 @@
+{
+  "simple-odd": {
+    "list": [
+      2,
+      5,
+      19,
+      3,
+      -100
+    ],
+    "expected": 3
+  },
+  "simple-even": {
+    "list": [
+      64,
+      2,
+      5,
+      19,
+      3,
+      -100
+    ],
+    "expected": 4
+  },
+  "accessor-odd": {
+    "list": [
+      {
+        "value": 2
+      },
+      {
+        "value": 5
+      },
+      {
+        "value": 19
+      },
+      {
+        "value": 3
+      },
+      {
+        "value": -100
+      }
+    ],
+    "expected": 3
+  },
+  "accessor-even": {
+    "list": [
+      {
+        "value": 64
+      },
+      {
+        "value": 2
+      },
+      {
+        "value": 5
+      },
+      {
+        "value": 19
+      },
+      {
+        "value": 3
+      },
+      {
+        "value": -100
+      }
+    ],
+    "expected": 4
+  }
+}

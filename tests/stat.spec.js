@@ -10,7 +10,7 @@ const expect = require( 'must' );
 const fx = require( './fixtures' );
 const stat = require( '../stat' );
 
-const accessor = (item) => item.value;
+const accessor = ( item ) => item.value;
 
 describe( 'stat', () =>{
 
@@ -64,5 +64,24 @@ describe( 'stat', () =>{
     } );
     it( 'should function correctly', ()=>expect( stat.rms( fx.rms.simple.list ) ).to.equal( fx.rms.simple.expected ) );
     it( 'should allow passing an accessor', ()=>expect( stat.rms( fx.rms.accessor.list, accessor ) ).to.equal( fx.rms.accessor.expected ) );
+  } );
+  describe( '.median()', ()=>{
+    it( 'should return NaN for an empty list or undefined', ()=>{
+      expect( stat.median( [] ) ).to.be.nan();
+      expect( stat.median() ).to.be.nan();
+    } );
+    it( 'should function correctly with lists of odd length', () => {
+      expect( stat.median( _.shuffle( fx.median[ "simple-odd" ].list ) ) ).to.equal( fx.median[ "simple-odd" ].expected )
+    } );
+    it( 'should function correctly with lists of even length', () => {
+      expect( stat.median( _.shuffle( fx.median[ "simple-even" ].list ) ) ).to.equal( fx.median[ "simple-even" ].expected )
+    } );
+    it( 'should allow passing an accessor with lists of odd length', () => {
+      expect( stat.median( _.shuffle( fx.median[ "accessor-odd" ].list ), accessor ) ).to.equal( fx.median[ "accessor-odd" ].expected )
+    } );
+    it( 'should allow passing an accessor with lists of even length', () => {
+      const data = fx.median[ "accessor-even" ];
+      expect( stat.median( _.shuffle( data.list ), accessor ) ).to.equal( data.expected );
+    } );
   } );
 } );
