@@ -34,6 +34,7 @@ pm.reliability(2.6246692913372702, 0.7615773105863908);// 0.9158064516129032
 **Kind**: global namespace  
 
 * [stat](#stat) : <code>object</code>
+    * [.median](#stat.median) ⇒ <code>Number</code>
     * [.square(value)](#stat.square) ⇒ <code>Number</code>
     * [.sum(list, [f])](#stat.sum) ⇒ <code>Number</code>
     * [.mean(list, [f])](#stat.mean) ⇒ <code>Number</code>
@@ -41,6 +42,26 @@ pm.reliability(2.6246692913372702, 0.7615773105863908);// 0.9158064516129032
     * [.sd(list, [f])](#stat.sd) ⇒ <code>Number</code>
     * [.rms(list, [f])](#stat.rms) ⇒ <code>Number</code>
 
+<a name="stat.median"></a>
+### stat.median ⇒ <code>Number</code>
+Returns the median of the set
+
+**Kind**: static constant of <code>[stat](#stat)</code>  
+**See**: https://en.wikipedia.org/wiki/Median  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| list | <code>Array</code> | set of numbers |
+| [f] | <code>function</code> | (optional) function used to retrieve the value |
+
+**Example**  
+```js
+stat.median([2, 5, 19, 3, -100]); // 3
+```
+**Example**  
+```js
+stat.median([{v:2}, {v:5}, {v:19}, {v:3}, {v:-100}], (item)=> item.v); // 3
+```
 <a name="stat.square"></a>
 ### stat.square(value) ⇒ <code>Number</code>
 Squares a number
@@ -60,11 +81,12 @@ stat.square(10); //100
 Addition of a sequence of numbers - ∑
 
 **Kind**: static method of <code>[stat](#stat)</code>  
+**See**: https://en.wikipedia.org/wiki/Summation  
 
-| Param | Type |
-| --- | --- |
-| list | <code>Array</code> | 
-| [f] | <code>function</code> | 
+| Param | Type | Description |
+| --- | --- | --- |
+| list | <code>Array</code> | set of numbers |
+| [f] | <code>function</code> | (optional) function used to retrieve the value |
 
 **Example**  
 ```js
@@ -79,11 +101,12 @@ stat.sum([{v:1}, {v:2}, {v:3}, {v:5}, {v:8}], (item)=> item.v); //19
 Arithmetic mean, sum of a sequence of numbers divided by sequence length
 
 **Kind**: static method of <code>[stat](#stat)</code>  
+**See**: https://en.wikipedia.org/wiki/Mean  
 
-| Param | Type |
-| --- | --- |
-| list | <code>Array</code> | 
-| [f] | <code>function</code> | 
+| Param | Type | Description |
+| --- | --- | --- |
+| list | <code>Array</code> | set of numbers |
+| [f] | <code>function</code> | (optional) function used to retrieve the value |
 
 **Example**  
 ```js
@@ -98,11 +121,12 @@ stat.mean([{v:1}, {v:2}, {v:3}, {v:5}, {v:8}], (item)=> item.v); //3.8
 The distance between numbers in a set
 
 **Kind**: static method of <code>[stat](#stat)</code>  
+**See**: https://en.wikipedia.org/wiki/Variance  
 
-| Param | Type |
-| --- | --- |
-| list | <code>Array</code> | 
-| [f] | <code>function</code> | 
+| Param | Type | Description |
+| --- | --- | --- |
+| list | <code>Array</code> | set of numbers |
+| [f] | <code>function</code> | (optional) function used to retrieve the value |
 
 **Example**  
 ```js
@@ -117,11 +141,12 @@ stat.variance([{v:1}, {v:2}, {v:3}, {v:5}, {v:8}], (item)=> item.v); //6.16
 Standard deviation - σ
 
 **Kind**: static method of <code>[stat](#stat)</code>  
+**See**: https://en.wikipedia.org/wiki/Standard_deviation  
 
-| Param | Type |
-| --- | --- |
-| list | <code>Array</code> | 
-| [f] | <code>function</code> | 
+| Param | Type | Description |
+| --- | --- | --- |
+| list | <code>Array</code> | set of numbers |
+| [f] | <code>function</code> | (optional) function used to retrieve the value |
 
 **Example**  
 ```js
@@ -136,11 +161,12 @@ stat.sd([{v:1}, {v:2}, {v:3}, {v:5}, {v:8}], (item)=> item.v); //2.4819347291981
 Root mean square, quadratic mean
 
 **Kind**: static method of <code>[stat](#stat)</code>  
+**See**: https://en.wikipedia.org/wiki/Root_mean_square  
 
-| Param | Type |
-| --- | --- |
-| list | <code>Array</code> | 
-| [f] | <code>function</code> | 
+| Param | Type | Description |
+| --- | --- | --- |
+| list | <code>Array</code> | set of numbers |
+| [f] | <code>function</code> | (optional) function used to retrieve the value |
 
 **Example**  
 ```js
