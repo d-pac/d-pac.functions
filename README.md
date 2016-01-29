@@ -34,34 +34,14 @@ pm.reliability(2.6246692913372702, 0.7615773105863908);// 0.9158064516129032
 **Kind**: global namespace  
 
 * [stat](#stat) : <code>object</code>
-    * [.median](#stat.median) ⇒ <code>Number</code>
     * [.square(value)](#stat.square) ⇒ <code>Number</code>
     * [.sum(list, [f])](#stat.sum) ⇒ <code>Number</code>
     * [.mean(list, [f])](#stat.mean) ⇒ <code>Number</code>
     * [.variance(list, [f])](#stat.variance) ⇒ <code>Number</code>
     * [.sd(list, [f])](#stat.sd) ⇒ <code>Number</code>
     * [.rms(list, [f])](#stat.rms) ⇒ <code>Number</code>
+    * [.median(list, [f])](#stat.median) ⇒ <code>Number</code>
 
-<a name="stat.median"></a>
-### stat.median ⇒ <code>Number</code>
-Returns the median of the set
-
-**Kind**: static constant of <code>[stat](#stat)</code>  
-**See**: https://en.wikipedia.org/wiki/Median  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| list | <code>Array</code> | set of numbers |
-| [f] | <code>function</code> | (optional) function used to retrieve the value |
-
-**Example**  
-```js
-stat.median([2, 5, 19, 3, -100]); // 3
-```
-**Example**  
-```js
-stat.median([{v:2}, {v:5}, {v:19}, {v:3}, {v:-100}], (item)=> item.v); // 3
-```
 <a name="stat.square"></a>
 ### stat.square(value) ⇒ <code>Number</code>
 Squares a number
@@ -175,6 +155,26 @@ stat.rms([1, 2, 3, 5, 8 ]); //4.538722287164087
 **Example**  
 ```js
 stat.rms([{v:1}, {v:2}, {v:3}, {v:5}, {v:8}], (item)=> item.v); //4.538722287164087
+```
+<a name="stat.median"></a>
+### stat.median(list, [f]) ⇒ <code>Number</code>
+Returns the median of the set
+
+**Kind**: static method of <code>[stat](#stat)</code>  
+**See**: https://en.wikipedia.org/wiki/Median  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| list | <code>Array</code> | set of numbers |
+| [f] | <code>function</code> | (optional) function used to retrieve the value |
+
+**Example**  
+```js
+stat.median([2, 5, 19, 3, -100]); // 3
+```
+**Example**  
+```js
+stat.median([{v:2}, {v:5}, {v:19}, {v:3}, {v:-100}], (item)=> item.v); // 3
 ```
 
 <a name="pm"></a>
