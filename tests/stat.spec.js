@@ -34,7 +34,7 @@ describe( 'stat', () =>{
     it( 'should allow passing an accessor', ()=>expect( stat.sum( fx.sum.accessor.list, accessor ) ).to.equal( fx.sum.accessor.expected ) );
   } );
   describe( '.mean()', ()=>{
-    it( 'should return NaN for an empty list or undefined', ()=>{
+    it( 'should return 0 for an empty list or undefined', ()=>{
       expect( stat.mean( [] ) ).to.be.nan();
       expect( stat.mean() ).to.be.nan();
     } );
