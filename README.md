@@ -177,21 +177,6 @@ stat.median([2, 5, 19, 3, -100]); // 3
 stat.median([{v:2}, {v:5}, {v:19}, {v:3}, {v:-100}], (item)=> item.v); // 3
 ```
 
-## Objects
-
-<dl>
-<dt><a href="#pm">pm</a> : <code>object</code></dt>
-<dd></dd>
-</dl>
-
-## Functions
-
-<dl>
-<dt><a href="#fisher">fisher(aF, bF, [digits])</a> ⇒ <code>number</code></dt>
-<dd><p>Fisher information</p>
-</dd>
-</dl>
-
 <a name="pm"></a>
 ## pm : <code>object</code>
 **Kind**: global namespace  
@@ -200,6 +185,7 @@ stat.median([{v:2}, {v:5}, {v:19}, {v:3}, {v:-100}], (item)=> item.v); // 3
     * [.reliability(sd, rmse)](#pm.reliability) ⇒ <code>number</code>
     * [.reliabilityFunctor(getAbility, getSE)](#pm.reliabilityFunctor) ⇒ <code>function</code>
     * [.rasch(a, b)](#pm.rasch) ⇒ <code>number</code>
+    * [.fisher(aF, bF, [digits])](#pm.fisher) ⇒ <code>number</code>
 
 <a name="pm.reliability"></a>
 ### pm.reliability(sd, rmse) ⇒ <code>number</code>
@@ -252,11 +238,11 @@ Rasch probability or Bradley-Terry-Luce probability
 ```js
 pm.rasch(.3, .7); //0.401312339887548
 ```
-<a name="fisher"></a>
-## fisher(aF, bF, [digits]) ⇒ <code>number</code>
+<a name="pm.fisher"></a>
+### pm.fisher(aF, bF, [digits]) ⇒ <code>number</code>
 Fisher information
 
-**Kind**: global function  
+**Kind**: static method of <code>[pm](#pm)</code>  
 **Returns**: <code>number</code> - - The fisher information  
 **See**: https://en.wikipedia.org/wiki/Fisher_information  
 
