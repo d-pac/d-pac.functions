@@ -71,13 +71,13 @@ describe( 'stat', () =>{
       expect( stat.median() ).to.be.nan();
     } );
     it( 'should function correctly with lists of odd length', () => {
-      expect( stat.median( _.shuffle( fx.median[ "simple-odd" ].list ) ) ).to.equal( fx.median[ "simple-odd" ].expected )
+      expect( stat.median( _.shuffle( fx.median[ "simple-odd" ].list ) ) ).to.equal( fx.median[ "simple-odd" ].expected );
     } );
     it( 'should function correctly with lists of even length', () => {
-      expect( stat.median( _.shuffle( fx.median[ "simple-even" ].list ) ) ).to.equal( fx.median[ "simple-even" ].expected )
+      expect( stat.median( _.shuffle( fx.median[ "simple-even" ].list ) ) ).to.equal( fx.median[ "simple-even" ].expected );
     } );
     it( 'should allow passing an accessor with lists of odd length', () => {
-      expect( stat.median( _.shuffle( fx.median[ "accessor-odd" ].list ), accessor ) ).to.equal( fx.median[ "accessor-odd" ].expected )
+      expect( stat.median( _.shuffle( fx.median[ "accessor-odd" ].list ), accessor ) ).to.equal( fx.median[ "accessor-odd" ].expected );
     } );
     it( 'should allow passing an accessor with lists of even length', () => {
       const data = fx.median[ "accessor-even" ];

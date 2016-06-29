@@ -33,4 +33,32 @@ describe( 'pm', () =>{
       expect( f( fx.reliabilityFunctor.accessor.list ) ).to.equal( fx.reliabilityFunctor.accessor.expected );
     } );
   } );
+  describe( '.rasch()', ()=>{
+    it( 'should function correctly', ()=>{
+      _.each( fx.rasch, ( fixture,
+                          i )=>{
+        const actual = pm.rasch( fixture.a, fixture.b );
+        expect( actual, `fixture with {a: ${fixture.a}, b: ${fixture.b}} resulting in` ).to.equal( fixture.expected );
+      } );
+    } );
+  } );
+  describe( '.fisher()', ()=>{
+    it( 'should function correctly for unfixed requests', ()=>{
+      _.each( fx.fisher.unfixed, ( fixture,
+                                   i )=>{
+        const actual = pm.fisher( fixture.a, fixture.b );
+        expect( actual, `fixture with {a: ${fixture.a}, b: ${fixture.b}} resulting in` ).to.equal( fixture.expected );
+      } );
+    } );
+    it( 'should return a number for fixed requests', ()=>{
+      const fixture = fx.fisher.fixed;
+      const actual = pm.fisher( fixture.a, fixture.b, fixture.digits );
+      expect( actual ).to.be.a.number();
+    } );
+    it( 'function correctly for fixed requests', ()=>{
+      const fixture = fx.fisher.fixed;
+      const actual = pm.fisher( fixture.a, fixture.b, fixture.digits );
+      expect( actual ).to.equal( fixture.expected );
+    } );
+  } );
 } );

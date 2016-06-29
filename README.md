@@ -177,6 +177,21 @@ stat.median([2, 5, 19, 3, -100]); // 3
 stat.median([{v:2}, {v:5}, {v:19}, {v:3}, {v:-100}], (item)=> item.v); // 3
 ```
 
+## Objects
+
+<dl>
+<dt><a href="#pm">pm</a> : <code>object</code></dt>
+<dd></dd>
+</dl>
+
+## Functions
+
+<dl>
+<dt><a href="#fisher">fisher(aF, bF, [digits])</a> ⇒ <code>number</code></dt>
+<dd><p>Fisher information</p>
+</dd>
+</dl>
+
 <a name="pm"></a>
 ## pm : <code>object</code>
 **Kind**: global namespace  
@@ -184,12 +199,14 @@ stat.median([{v:2}, {v:5}, {v:19}, {v:3}, {v:-100}], (item)=> item.v); // 3
 * [pm](#pm) : <code>object</code>
     * [.reliability(sd, rmse)](#pm.reliability) ⇒ <code>number</code>
     * [.reliabilityFunctor(getAbility, getSE)](#pm.reliabilityFunctor) ⇒ <code>function</code>
+    * [.rasch(a, b)](#pm.rasch) ⇒ <code>number</code>
 
 <a name="pm.reliability"></a>
 ### pm.reliability(sd, rmse) ⇒ <code>number</code>
 Overall consistency of a measure
 
 **Kind**: static method of <code>[pm](#pm)</code>  
+**Returns**: <code>number</code> - - The reliability  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -205,6 +222,7 @@ pm.reliability(4, 2); //0.75
 Creates a function by taking two getters, which can be used to calculate the reliability of a set of values and SE's
 
 **Kind**: static method of <code>[pm](#pm)</code>  
+**Returns**: <code>function</code> - - Function to be used on a list to calculate the reliability  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -216,6 +234,41 @@ Creates a function by taking two getters, which can be used to calculate the rel
 const list = [{v:1, se:4}, {v:2, se:2}, {v:3, se:0}, {v:5, se:0.45}, {v:8, se:3}];
 const f = pm.reliabilityFunctor((item)=>item.v, (item)=>item.se);
 f(list); //0.05186688311688284
+```
+<a name="pm.rasch"></a>
+### pm.rasch(a, b) ⇒ <code>number</code>
+Rasch probability or Bradley-Terry-Luce probability
+
+**Kind**: static method of <code>[pm](#pm)</code>  
+**Returns**: <code>number</code> - - The Rasch probability  
+**See**: https://en.wikipedia.org/wiki/Rasch_model  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| a | <code>number</code> | param A |
+| b | <code>number</code> | param B |
+
+**Example**  
+```js
+pm.rasch(.3, .7); //0.401312339887548
+```
+<a name="fisher"></a>
+## fisher(aF, bF, [digits]) ⇒ <code>number</code>
+Fisher information
+
+**Kind**: global function  
+**Returns**: <code>number</code> - - The fisher information  
+**See**: https://en.wikipedia.org/wiki/Fisher_information  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| aF | <code>number</code> | param A |
+| bF | <code>number</code> | param B |
+| [digits] | <code>number</code> | number of digits to appear after the decimal point |
+
+**Example**  
+```js
+pm.fisher(.3, .7); //0.24026074574152914
 ```
 
 
