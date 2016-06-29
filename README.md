@@ -256,6 +256,10 @@ Fisher information
 ```js
 pm.fisher(.3, .7); //0.24026074574152914
 ```
+**Example**  
+```js
+pm.fisher(.3, .7, 4); //0.2403
+```
 
 
 [npm-url]: https://npmjs.org/package/d-pac.functions
