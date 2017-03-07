@@ -30,19 +30,22 @@ pm.reliability(2.6246692913372702, 0.7615773105863908);// 0.9158064516129032
 ## API
 
 <a name="stat"></a>
+
 ## stat : <code>object</code>
 **Kind**: global namespace  
 
 * [stat](#stat) : <code>object</code>
     * [.square(value)](#stat.square) ⇒ <code>Number</code>
-    * [.sum(list, [f])](#stat.sum) ⇒ <code>Number</code>
-    * [.mean(list, [f])](#stat.mean) ⇒ <code>Number</code>
-    * [.variance(list, [f])](#stat.variance) ⇒ <code>Number</code>
-    * [.sd(list, [f])](#stat.sd) ⇒ <code>Number</code>
-    * [.rms(list, [f])](#stat.rms) ⇒ <code>Number</code>
-    * [.median(list, [f])](#stat.median) ⇒ <code>Number</code>
+    * [.sum(collection, [f])](#stat.sum) ⇒ <code>Number</code>
+    * [.mean(collection, [f])](#stat.mean) ⇒ <code>Number</code>
+    * [.variance(collection, [f])](#stat.variance) ⇒ <code>Number</code>
+    * [.sd(collection, [f])](#stat.sd) ⇒ <code>Number</code>
+    * [.rms(collection, [f])](#stat.rms) ⇒ <code>Number</code>
+    * [.median(collection, [f])](#stat.median) ⇒ <code>Number</code>
+    * [.standardize(collection, [f])](#stat.standardize) ⇒ <code>Array</code>
 
 <a name="stat.square"></a>
+
 ### stat.square(value) ⇒ <code>Number</code>
 Squares a number
 
@@ -57,7 +60,8 @@ Squares a number
 stat.square(10); //100
 ```
 <a name="stat.sum"></a>
-### stat.sum(list, [f]) ⇒ <code>Number</code>
+
+### stat.sum(collection, [f]) ⇒ <code>Number</code>
 Addition of a sequence of numbers - ∑
 
 **Kind**: static method of <code>[stat](#stat)</code>  
@@ -65,7 +69,7 @@ Addition of a sequence of numbers - ∑
 
 | Param | Type | Description |
 | --- | --- | --- |
-| list | <code>Array</code> | set of numbers |
+| collection | <code>Array</code> &#124; <code>Object</code> | set of numbers |
 | [f] | <code>function</code> | (optional) function used to retrieve the value |
 
 **Example**  
@@ -77,7 +81,8 @@ stat.sum([1, 2, 3, 5, 8 ]); //19
 stat.sum([{v:1}, {v:2}, {v:3}, {v:5}, {v:8}], (item)=> item.v); //19
 ```
 <a name="stat.mean"></a>
-### stat.mean(list, [f]) ⇒ <code>Number</code>
+
+### stat.mean(collection, [f]) ⇒ <code>Number</code>
 Arithmetic mean, sum of a sequence of numbers divided by sequence length
 
 **Kind**: static method of <code>[stat](#stat)</code>  
@@ -85,7 +90,7 @@ Arithmetic mean, sum of a sequence of numbers divided by sequence length
 
 | Param | Type | Description |
 | --- | --- | --- |
-| list | <code>Array</code> | set of numbers |
+| collection | <code>Array</code> &#124; <code>Object</code> | set of numbers |
 | [f] | <code>function</code> | (optional) function used to retrieve the value |
 
 **Example**  
@@ -97,7 +102,8 @@ stat.mean([1, 2, 3, 5, 8 ]); //3.8
 stat.mean([{v:1}, {v:2}, {v:3}, {v:5}, {v:8}], (item)=> item.v); //3.8
 ```
 <a name="stat.variance"></a>
-### stat.variance(list, [f]) ⇒ <code>Number</code>
+
+### stat.variance(collection, [f]) ⇒ <code>Number</code>
 The distance between numbers in a set
 
 **Kind**: static method of <code>[stat](#stat)</code>  
@@ -105,7 +111,7 @@ The distance between numbers in a set
 
 | Param | Type | Description |
 | --- | --- | --- |
-| list | <code>Array</code> | set of numbers |
+| collection | <code>Array</code> &#124; <code>Object</code> | set of numbers |
 | [f] | <code>function</code> | (optional) function used to retrieve the value |
 
 **Example**  
@@ -117,7 +123,8 @@ stat.variance([1, 2, 3, 5, 8 ]); //6.16
 stat.variance([{v:1}, {v:2}, {v:3}, {v:5}, {v:8}], (item)=> item.v); //6.16
 ```
 <a name="stat.sd"></a>
-### stat.sd(list, [f]) ⇒ <code>Number</code>
+
+### stat.sd(collection, [f]) ⇒ <code>Number</code>
 Standard deviation - σ
 
 **Kind**: static method of <code>[stat](#stat)</code>  
@@ -125,7 +132,7 @@ Standard deviation - σ
 
 | Param | Type | Description |
 | --- | --- | --- |
-| list | <code>Array</code> | set of numbers |
+| collection | <code>Array</code> &#124; <code>Object</code> | set of numbers |
 | [f] | <code>function</code> | (optional) function used to retrieve the value |
 
 **Example**  
@@ -137,7 +144,8 @@ stat.sd([1, 2, 3, 5, 8 ]); //2.4819347291981715
 stat.sd([{v:1}, {v:2}, {v:3}, {v:5}, {v:8}], (item)=> item.v); //2.4819347291981715
 ```
 <a name="stat.rms"></a>
-### stat.rms(list, [f]) ⇒ <code>Number</code>
+
+### stat.rms(collection, [f]) ⇒ <code>Number</code>
 Root mean square, quadratic mean
 
 **Kind**: static method of <code>[stat](#stat)</code>  
@@ -145,7 +153,7 @@ Root mean square, quadratic mean
 
 | Param | Type | Description |
 | --- | --- | --- |
-| list | <code>Array</code> | set of numbers |
+| collection | <code>Array</code> &#124; <code>Object</code> | set of numbers |
 | [f] | <code>function</code> | (optional) function used to retrieve the value |
 
 **Example**  
@@ -157,7 +165,8 @@ stat.rms([1, 2, 3, 5, 8 ]); //4.538722287164087
 stat.rms([{v:1}, {v:2}, {v:3}, {v:5}, {v:8}], (item)=> item.v); //4.538722287164087
 ```
 <a name="stat.median"></a>
-### stat.median(list, [f]) ⇒ <code>Number</code>
+
+### stat.median(collection, [f]) ⇒ <code>Number</code>
 Returns the median of the set
 
 **Kind**: static method of <code>[stat](#stat)</code>  
@@ -165,19 +174,41 @@ Returns the median of the set
 
 | Param | Type | Description |
 | --- | --- | --- |
-| list | <code>Array</code> | set of numbers |
+| collection | <code>Array</code> &#124; <code>Object</code> | set of numbers |
 | [f] | <code>function</code> | (optional) function used to retrieve the value |
 
 **Example**  
 ```js
-stat.median([2, 5, 19, 3, -100]); // 3
+stat.media([2, 5, 19, 3, -100]); //3
 ```
 **Example**  
 ```js
 stat.median([{v:2}, {v:5}, {v:19}, {v:3}, {v:-100}], (item)=> item.v); // 3
 ```
+<a name="stat.standardize"></a>
+
+### stat.standardize(collection, [f]) ⇒ <code>Array</code>
+calculate standard scores of z scores: z= (x - mu)/sigma
+
+**Kind**: static method of <code>[stat](#stat)</code>  
+**See**: https://en.wikipedia.org/wiki/Standard_score  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| collection | <code>Array</code> &#124; <code>Object</code> | set of numbers |
+| [f] | <code>function</code> | (optional) function used to retrieve the value |
+
+**Example**  
+```js
+stat.standardize([ 2, 5, 19, -5, 3, -100, -27, -2 ]); // [ 0.4326093777237974,  0.5184161964458729,  0.918848017148892,  0.23239346737228786,  0.4612116506311559, -2.4848224588267702, -0.39685653658959924,  0.31820028609436335 ]
+```
+**Example**  
+```js
+stat.standardize([{v:2}, {v:5}, {v:19}, {v:3}, {v:-100}, {v:-27}, {v:-2}], (item)=> item.v); [ 0.4326093777237974,  0.5184161964458729,  0.918848017148892,  0.23239346737228786,  0.4612116506311559, -2.4848224588267702, -0.39685653658959924,  0.31820028609436335 ]
+```
 
 <a name="pm"></a>
+
 ## pm : <code>object</code>
 **Kind**: global namespace  
 
@@ -188,6 +219,7 @@ stat.median([{v:2}, {v:5}, {v:19}, {v:3}, {v:-100}], (item)=> item.v); // 3
     * [.fisher(aF, bF, [digits])](#pm.fisher) ⇒ <code>number</code>
 
 <a name="pm.reliability"></a>
+
 ### pm.reliability(sd, rmse) ⇒ <code>number</code>
 Overall consistency of a measure
 
@@ -204,6 +236,7 @@ Overall consistency of a measure
 pm.reliability(4, 2); //0.75
 ```
 <a name="pm.reliabilityFunctor"></a>
+
 ### pm.reliabilityFunctor(getAbility, getSE) ⇒ <code>function</code>
 Creates a function by taking two getters, which can be used to calculate the reliability of a set of values and SE's
 
@@ -222,6 +255,7 @@ const f = pm.reliabilityFunctor((item)=>item.v, (item)=>item.se);
 f(list); //0.05186688311688284
 ```
 <a name="pm.rasch"></a>
+
 ### pm.rasch(a, b) ⇒ <code>number</code>
 Rasch probability or Bradley-Terry-Luce probability
 
@@ -239,6 +273,7 @@ Rasch probability or Bradley-Terry-Luce probability
 pm.rasch(.3, .7); //0.401312339887548
 ```
 <a name="pm.fisher"></a>
+
 ### pm.fisher(aF, bF, [digits]) ⇒ <code>number</code>
 Fisher information
 

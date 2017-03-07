@@ -1,66 +1,45 @@
 {
-  "simple-odd": {
-    "list": [
-      2,
-      5,
-      19,
-      3,
-      -100
-    ],
-    "expected": 3
-  },
-  "simple-even": {
-    "list": [
-      64,
-      2,
-      5,
-      19,
-      3,
-      -100
-    ],
-    "expected": 4
-  },
-  "accessor-odd": {
-    "list": [
-      {
+  "odd": {
+    "items": {
+      "b": {
         "value": 2
       },
-      {
+      "c": {
         "value": 5
       },
-      {
+      "d": {
         "value": 19
       },
-      {
+      "e": {
         "value": 3
       },
-      {
+      "f": {
         "value": -100
       }
-    ],
+    },
     "expected": 3
   },
-  "accessor-even": {
-    "list": [
-      {
+  "even": {
+    "items": {
+      "a": {
         "value": 64
       },
-      {
+      "b": {
         "value": 2
       },
-      {
+      "c": {
         "value": 5
       },
-      {
+      "d": {
         "value": 19
       },
-      {
+      "e": {
         "value": 3
       },
-      {
+      "f": {
         "value": -100
       }
-    ],
+    },
     "expected": 4
   }
 }

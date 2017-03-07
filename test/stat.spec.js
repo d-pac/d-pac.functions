@@ -3,85 +3,209 @@
 /* global describe, it, beforeEach */
 /* jshint unused:false */
 
-const _ = require( 'lodash' );
+const _ = require('lodash');
 //const sinon = require( 'sinon' );
 //const stub = require( 'proxyquire' );
-const expect = require( 'must' );
-const fx = require( './fixtures' );
-const stat = require( '../stat' );
+const expect = require('must');
+const fx = require('./fixtures');
+const stat = require('../stat');
 
-const accessor = ( item ) => item.value;
+const accessor = (item) => item.value;
 
-describe( 'stat', () =>{
+function createFixtures(objectMap) {
+  return {
+    objectMap: objectMap,
+    objectArray: _.values(objectMap),
+    numberArray: _.values(objectMap).map(accessor),
+    numberMap: _.reduce(objectMap, (memo, item, key) => {
+      memo[key] = accessor(item);
+      return memo;
+    })
+  };
+}
 
-  describe( 'spec file', () => it( 'should be found', () => expect( true ).to.be.true() ) );
+describe('stat', () => {
 
-  describe( '.square()', ()=>{
-    it( 'should square correctly', ()=>{
-      expect( stat.square( 0 ) ).to.equal( 0 );
-      expect( stat.square( 4 ) ).to.equal( 16 );
-      expect( stat.square( -3 ) ).to.equal( 9 );
-      expect( stat.square( 2.5 ) ).to.equal( 6.25 );
-    } );
-  } );
+  describe('spec file', () => it('should be found', () => expect(true).to.be.true()));
 
-  describe( '.sum()', ()=>{
-    it( 'should return 0 for an empty list or undefined', ()=>{
-      expect( stat.sum( [] ) ).to.equal( 0 );
-      expect( stat.sum() ).to.equal( 0 );
-    } );
-    it( 'should function correctly', ()=>expect( stat.sum( fx.sum.simple.list ) ).to.equal( fx.sum.simple.expected ) );
-    it( 'should allow passing an accessor', ()=>expect( stat.sum( fx.sum.accessor.list, accessor ) ).to.equal( fx.sum.accessor.expected ) );
-  } );
-  describe( '.mean()', ()=>{
-    it( 'should return 0 for an empty list or undefined', ()=>{
-      expect( stat.mean( [] ) ).to.be.nan();
-      expect( stat.mean() ).to.be.nan();
-    } );
-    it( 'should function correctly', ()=>expect( stat.mean( fx.mean.simple.list ) ).to.equal( fx.mean.simple.expected ) );
-    it( 'should allow passing an accessor', ()=>expect( stat.mean( fx.mean.accessor.list, accessor ) ).to.equal( fx.mean.accessor.expected ) );
-  } );
-  describe( '.variance()', ()=>{
-    it( 'should return NaN for an empty list or undefined', ()=>{
-      expect( stat.variance( [] ) ).to.be.nan();
-      expect( stat.variance() ).to.be.nan();
-    } );
-    it( 'should function correctly', ()=>expect( stat.variance( fx.variance.simple.list ) ).to.equal( fx.variance.simple.expected ) );
-    it( 'should allow passing an accessor', ()=>expect( stat.variance( fx.variance.accessor.list, accessor ) ).to.equal( fx.variance.accessor.expected ) );
-  } );
-  describe( '.sd()', ()=>{
-    it( 'should return NaN for an empty list or undefined', ()=>{
-      expect( stat.sd( [] ) ).to.be.nan();
-      expect( stat.sd() ).to.be.nan();
-    } );
-    it( 'should function correctly', ()=>expect( stat.sd( fx.sd.simple.list ) ).to.equal( fx.sd.simple.expected ) );
-    it( 'should allow passing an accessor', ()=>expect( stat.sd( fx.sd.accessor.list, accessor ) ).to.equal( fx.sd.accessor.expected ) );
-  } );
-  describe( '.rms()', ()=>{
-    it( 'should return NaN for an empty list or undefined', ()=>{
-      expect( stat.rms( [] ) ).to.be.nan();
-      expect( stat.rms() ).to.be.nan();
-    } );
-    it( 'should function correctly', ()=>expect( stat.rms( fx.rms.simple.list ) ).to.equal( fx.rms.simple.expected ) );
-    it( 'should allow passing an accessor', ()=>expect( stat.rms( fx.rms.accessor.list, accessor ) ).to.equal( fx.rms.accessor.expected ) );
-  } );
-  describe( '.median()', ()=>{
-    it( 'should return NaN for an empty list or undefined', ()=>{
-      expect( stat.median( [] ) ).to.be.nan();
-      expect( stat.median() ).to.be.nan();
-    } );
-    it( 'should function correctly with lists of odd length', () => {
-      expect( stat.median( _.shuffle( fx.median[ "simple-odd" ].list ) ) ).to.equal( fx.median[ "simple-odd" ].expected );
-    } );
-    it( 'should function correctly with lists of even length', () => {
-      expect( stat.median( _.shuffle( fx.median[ "simple-even" ].list ) ) ).to.equal( fx.median[ "simple-even" ].expected );
-    } );
-    it( 'should allow passing an accessor with lists of odd length', () => {
-      expect( stat.median( _.shuffle( fx.median[ "accessor-odd" ].list ), accessor ) ).to.equal( fx.median[ "accessor-odd" ].expected );
-    } );
-    it( 'should allow passing an accessor with lists of even length', () => {
-      const data = fx.median[ "accessor-even" ];
-      expect( stat.median( _.shuffle( data.list ), accessor ) ).to.equal( data.expected );
-    } );
-  } );
-} );
+  describe('.square()', () => {
+    it('should square correctly', () => {
+      expect(stat.square(0)).to.equal(0);
+      expect(stat.square(4)).to.equal(16);
+      expect(stat.square(-3)).to.equal(9);
+      expect(stat.square(2.5)).to.equal(6.25);
+    });
+  });
+
+  describe('.sum()', () => {
+    const items = createFixtures(fx.sum.items);
+    it('should return 0 for an empty list or undefined', () => {
+      expect(stat.sum([])).to.equal(0);
+      expect(stat.sum()).to.equal(0);
+    });
+    it('should function correctly with an array of numbers', () => {
+      expect(stat.sum(items.numberArray)).to.equal(fx.sum.expected);
+    });
+    it('should function correctly with an map of numbers', () => {
+      expect(stat.sum(items.numberMap)).to.equal(fx.sum.expected);
+    });
+    it('should function correctly with an array of objects', () => {
+      expect(stat.sum(items.objectArray, accessor)).to.equal(fx.sum.expected);
+    });
+    it('should function correctly with an map of objects', () => {
+      expect(stat.sum(items.objectMap, accessor)).to.equal(fx.sum.expected);
+    });
+
+  });
+  describe('.mean()', () => {
+    const items = createFixtures(fx.mean.items);
+    it('should return 0 for an empty list or undefined', () => {
+      expect(stat.mean([])).to.be.nan();
+      expect(stat.mean()).to.be.nan();
+    });
+    it('should function correctly with arrays of numbers', () => {
+      expect(stat.mean(items.numberArray))
+          .to.equal(fx.mean.expected);
+    });
+    it('should function correctly with maps of numbers', () => {
+      expect(stat.mean(items.numberMap))
+          .to.equal(fx.mean.expected);
+    });
+    it('should function correctly with arrays of objects', () => {
+      expect(stat.mean(items.objectArray, accessor))
+          .to.equal(fx.mean.expected);
+    });
+    it('should function correctly with maps of objects', () => {
+      expect(stat.mean(items.objectMap, accessor))
+          .to.equal(fx.mean.expected);
+    });
+  });
+  describe('.variance()', () => {
+    const items = createFixtures(fx.variance.items);
+    it('should return NaN for an empty list or undefined', () => {
+      expect(stat.variance([])).to.be.nan();
+      expect(stat.variance()).to.be.nan();
+    });
+    it('should function correctly with arrays of numbers', () => {
+      expect(stat.variance(items.numberArray)).to.equal(fx.variance.expected);
+    });
+    it('should function correctly with maps of numbers', () => {
+      expect(stat.variance(items.numberMap)).to.equal(fx.variance.expected);
+    });
+    it('should function correctly with arrays of objects', () => {
+      expect(stat.variance(items.objectArray, accessor)).to.equal(fx.variance.expected);
+    });
+    it('should function correctly with maps of objects', () => {
+      expect(stat.variance(items.objectMap, accessor)).to.equal(fx.variance.expected);
+    });
+
+  });
+  describe('.sd()', () => {
+    const items = createFixtures(fx.sd.items);
+    it('should return NaN for an empty list or undefined', () => {
+      expect(stat.sd([])).to.be.nan();
+      expect(stat.sd()).to.be.nan();
+    });
+    it('should function correctly with arrays of numbers', () => {
+      expect(stat.sd(items.numberArray))
+          .to.equal(fx.sd.expected);
+    });
+    it('should function correctly with maps of numbers', () => {
+      expect(stat.sd(items.numberMap))
+          .to.equal(fx.sd.expected);
+    });
+    it('should function correctly with arrays of objects', () => {
+      expect(stat.sd(items.objectArray, accessor))
+          .to.equal(fx.sd.expected);
+    });
+    it('should function correctly with maps of numbers', () => {
+      expect(stat.sd(items.objectMap, accessor))
+          .to.equal(fx.sd.expected);
+    });
+  });
+  describe('.rms()', () => {
+    const items = createFixtures(fx.rms.items);
+    it('should return NaN for an empty list or undefined', () => {
+      expect(stat.rms([])).to.be.nan();
+      expect(stat.rms()).to.be.nan();
+    });
+    it('should function correctly with arrays of numbers', () => {
+      expect(stat.rms(items.numberArray))
+          .to.equal(fx.rms.expected);
+    });
+    it('should function correctly with maps of numbers', () => {
+      expect(stat.rms(items.numberMap))
+          .to.equal(fx.rms.expected);
+    });
+    it('should function correctly with arrays of objects', () => {
+      expect(stat.rms(items.objectArray, accessor))
+          .to.equal(fx.rms.expected);
+    });
+    it('should function correctly with maps of objects', () => {
+      expect(stat.rms(items.objectMap, accessor))
+          .to.equal(fx.rms.expected);
+    });
+  });
+  describe('.median()', () => {
+    const items = {
+      even: createFixtures(fx.median.even.items),
+      odd: createFixtures(fx.median.odd.items)
+    };
+
+    it('should return NaN for an empty list or undefined', () => {
+      expect(stat.median([])).to.be.nan();
+      expect(stat.median()).to.be.nan();
+    });
+    it('should function correctly with odd sized arrays of numbers', () => {
+      expect(stat.median(items.odd.numberArray))
+          .to.equal(fx.median.odd.expected);
+    });
+    it('should function correctly with odd sized maps of numbers', () => {
+      expect(stat.median(items.odd.numberMap))
+          .to.equal(fx.median.odd.expected);
+    });
+    it('should function correctly with odd sized arrays of objects', () => {
+      expect(stat.median(items.odd.objectArray, accessor))
+          .to.equal(fx.median.odd.expected);
+    });
+    it('should function correctly with odd sized maps of objects', () => {
+      expect(stat.median(items.odd.objectMap, accessor))
+          .to.equal(fx.median.odd.expected);
+    });
+    it('should function correctly with even sized arrays of numbers', () => {
+      expect(stat.median(items.even.numberArray))
+          .to.equal(fx.median.even.expected);
+    });
+    it('should function correctly with even sized maps of numbers', () => {
+      expect(stat.median(items.even.numberMap))
+          .to.equal(fx.median.even.expected);
+    });
+    it('should function correctly with even sized arrays of objects', () => {
+      expect(stat.median(items.even.objectArray, accessor))
+          .to.equal(fx.median.even.expected);
+    });
+    it('should function correctly with even sized maps of objects', () => {
+      expect(stat.median(items.even.objectMap, accessor))
+          .to.equal(fx.median.even.expected);
+    });
+  });
+  describe('.standardize()', () => {
+    const items = createFixtures(fx.standardize.items);
+    it('should function correctly with arrays of numbers', () => {
+      expect(stat.standardize(items.numberArray))
+          .to.eql(fx.standardize.expected);
+    });
+    it('should function correctly with maps of numbers', () => {
+      expect(stat.standardize(items.numberMap))
+          .to.eql(fx.standardize.expected);
+    });
+    it('should function correctly with arrays of objects', () => {
+      expect(stat.standardize(items.objectArray, accessor))
+          .to.eql(fx.standardize.expected);
+    });
+    it('should function correctly with maps of objects', () => {
+      expect(stat.standardize(items.objectMap, accessor))
+          .to.eql(fx.standardize.expected);
+    });
+  });
+});

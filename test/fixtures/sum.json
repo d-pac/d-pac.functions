@@ -1,32 +1,20 @@
 {
-  "simple": {
-    "list": [
-      1,
-      2,
-      3,
-      5,
-      8
-    ],
-    "expected": 19
+  "items": {
+    "a": {
+      "value": 1
+    },
+    "b": {
+      "value": 2
+    },
+    "c": {
+      "value": 3
+    },
+    "d": {
+      "value": 5
+    },
+    "e": {
+      "value": 8
+    }
   },
-  "accessor": {
-    "list": [
-      {
-        "value": 1
-      },
-      {
-        "value": 2
-      },
-      {
-        "value": 3
-      },
-      {
-        "value": 5
-      },
-      {
-        "value": 8
-      }
-    ],
-    "expected": 19
-  }
+  "expected": 19
 }
