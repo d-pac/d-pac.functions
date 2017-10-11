@@ -1,6 +1,6 @@
 {
   "name": "d-pac.functions",
-  "version": "1.4.1",
+  "version": "2.0.0",
   "description": "Statistical and psychometic helper functions used in d-pac",
   "homepage": "https://github.com/d-pac/d-pac.functions",
   "author": {
@@ -29,8 +29,7 @@
     "psychometric"
   ],
   "license": "GPL-3.0",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "documentation": "^5.2.2",
     "eslint": "2.13.1",
