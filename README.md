@@ -132,7 +132,7 @@ Squares a number
 
 **Parameters**
 
--   `value` **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** 
+-   `value` **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** a value
 
 **Examples**
 
@@ -140,7 +140,7 @@ Squares a number
 stat.square(10); //100
 ```
 
-Returns **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** 
+Returns **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** the squared value
 
 #### sum
 
@@ -150,8 +150,8 @@ Addition of a sequence of numbers - ∑
 
 **Parameters**
 
--   `collection` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** set of numbers
--   `f` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** (optional) function used to retrieve the value
+-   `collection` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** set of numbers (optional, default `[]`)
+-   `f` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** (optional) function used to retrieve the value (optional, default `returnValue`)
 
 **Examples**
 
@@ -163,7 +163,7 @@ stat.sum([1, 2, 3, 5, 8 ]); //19
 stat.sum([{v:1}, {v:2}, {v:3}, {v:5}, {v:8}], (item)=> item.v); //19
 ```
 
-Returns **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** 
+Returns **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** the sum of all values
 
 #### mean
 
@@ -173,8 +173,8 @@ Arithmetic mean, sum of a sequence of numbers divided by sequence length
 
 **Parameters**
 
--   `collection` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** set of numbers
--   `f` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** (optional) function used to retrieve the value
+-   `collection` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** set of numbers (optional, default `[]`)
+-   `f` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** (optional) function used to retrieve the value (optional, default `returnValue`)
 
 **Examples**
 
@@ -186,7 +186,7 @@ stat.mean([1, 2, 3, 5, 8 ]); //3.8
 stat.mean([{v:1}, {v:2}, {v:3}, {v:5}, {v:8}], (item)=> item.v); //3.8
 ```
 
-Returns **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** 
+Returns **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** the arithmetic mean
 
 #### variance
 
@@ -196,8 +196,8 @@ The distance between numbers in a set
 
 **Parameters**
 
--   `collection` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** set of numbers
--   `f` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** (optional) function used to retrieve the value
+-   `collection` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** set of numbers (optional, default `[]`)
+-   `f` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** (optional) function used to retrieve the value (optional, default `returnValue`)
 
 **Examples**
 
@@ -209,7 +209,7 @@ stat.variance([1, 2, 3, 5, 8 ]); //6.16
 stat.variance([{v:1}, {v:2}, {v:3}, {v:5}, {v:8}], (item)=> item.v); //6.16
 ```
 
-Returns **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** 
+Returns **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** the distance between numbers in a set
 
 #### sd
 
@@ -219,8 +219,8 @@ Standard deviation - σ
 
 **Parameters**
 
--   `collection` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** set of numbers
--   `f` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** (optional) function used to retrieve the value
+-   `collection` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** set of numbers (optional, default `[]`)
+-   `f` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** (optional) function used to retrieve the value (optional, default `returnValue`)
 
 **Examples**
 
@@ -232,7 +232,7 @@ stat.sd([1, 2, 3, 5, 8 ]); //2.4819347291981715
 stat.sd([{v:1}, {v:2}, {v:3}, {v:5}, {v:8}], (item)=> item.v); //2.4819347291981715
 ```
 
-Returns **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** 
+Returns **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** the standard deviation
 
 #### rms
 
@@ -242,8 +242,8 @@ Root mean square, quadratic mean
 
 **Parameters**
 
--   `collection` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** set of numbers
--   `f` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** (optional) function used to retrieve the value
+-   `collection` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** set of numbers (optional, default `[]`)
+-   `f` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** (optional) function used to retrieve the value (optional, default `returnValue`)
 
 **Examples**
 
@@ -255,7 +255,7 @@ stat.rms([1, 2, 3, 5, 8 ]); //4.538722287164087
 stat.rms([{v:1}, {v:2}, {v:3}, {v:5}, {v:8}], (item)=> item.v); //4.538722287164087
 ```
 
-Returns **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** 
+Returns **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** the root mean square
 
 #### median
 
@@ -265,20 +265,20 @@ Returns the median of the set
 
 **Parameters**
 
--   `collection` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** set of numbers
--   `f` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** (optional) function used to retrieve the value
+-   `collection` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** set of numbers (optional, default `[]`)
+-   `f` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** (optional) function used to retrieve the value (optional, default `returnValue`)
 
 **Examples**
 
 ```javascript
-stat.media([2, 5, 19, 3, -100]); //3
+stat.median([2, 5, 19, 3, -100]); //3
 ```
 
 ```javascript
 stat.median([{v:2}, {v:5}, {v:19}, {v:3}, {v:-100}], (item)=> item.v); // 3
 ```
 
-Returns **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** 
+Returns **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** the median
 
 #### standardize
 
@@ -288,8 +288,8 @@ calculate standard scores of z scores: z= (x - mu)/sigma
 
 **Parameters**
 
--   `collection` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** set of numbers
--   `f` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** (optional) function used to retrieve the value
+-   `collection` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** set of numbers (optional, default `[]`)
+-   `f` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** (optional) function used to retrieve the value (optional, default `returnValue`)
 
 **Examples**
 
@@ -303,4 +303,4 @@ stat.standardize([{v:2}, {v:5}, {v:19}, {v:3}, {v:-100}, {v:-27}, {v:-2}], (item
 // [ 0.4326093777237974,  0.5184161964458729,  0.918848017148892,  0.23239346737228786,  0.4612116506311559, -2.4848224588267702, -0.39685653658959924,  0.31820028609436335 ]
 ```
 
-Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** 
+Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)>** an array of standardized z scores

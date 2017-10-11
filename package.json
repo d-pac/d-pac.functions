@@ -30,13 +30,13 @@
   ],
   "license": "GPL-3.0",
   "dependencies": {
-    "lodash": "4.0.1"
   },
   "devDependencies": {
     "documentation": "^5.2.2",
     "eslint": "2.13.1",
     "eslint-config-prototypers": "0.2.0",
     "istanbul": "0.4.5",
+    "lodash": "4.0.1",
     "markdown-include": "0.4.2",
     "mocha": "2.4.4",
     "must": "0.13.1",

@@ -46,14 +46,8 @@ describe('stat', () => {
     it('should function correctly with an array of numbers', () => {
       expect(stat.sum(items.numberArray)).to.equal(fx.sum.expected);
     });
-    it('should function correctly with an map of numbers', () => {
-      expect(stat.sum(items.numberMap)).to.equal(fx.sum.expected);
-    });
     it('should function correctly with an array of objects', () => {
       expect(stat.sum(items.objectArray, accessor)).to.equal(fx.sum.expected);
-    });
-    it('should function correctly with an map of objects', () => {
-      expect(stat.sum(items.objectMap, accessor)).to.equal(fx.sum.expected);
     });
 
   });
@@ -67,16 +61,8 @@ describe('stat', () => {
       expect(stat.mean(items.numberArray))
           .to.equal(fx.mean.expected);
     });
-    it('should function correctly with maps of numbers', () => {
-      expect(stat.mean(items.numberMap))
-          .to.equal(fx.mean.expected);
-    });
     it('should function correctly with arrays of objects', () => {
       expect(stat.mean(items.objectArray, accessor))
-          .to.equal(fx.mean.expected);
-    });
-    it('should function correctly with maps of objects', () => {
-      expect(stat.mean(items.objectMap, accessor))
           .to.equal(fx.mean.expected);
     });
   });
@@ -89,14 +75,8 @@ describe('stat', () => {
     it('should function correctly with arrays of numbers', () => {
       expect(stat.variance(items.numberArray)).to.equal(fx.variance.expected);
     });
-    it('should function correctly with maps of numbers', () => {
-      expect(stat.variance(items.numberMap)).to.equal(fx.variance.expected);
-    });
     it('should function correctly with arrays of objects', () => {
       expect(stat.variance(items.objectArray, accessor)).to.equal(fx.variance.expected);
-    });
-    it('should function correctly with maps of objects', () => {
-      expect(stat.variance(items.objectMap, accessor)).to.equal(fx.variance.expected);
     });
 
   });
@@ -110,16 +90,8 @@ describe('stat', () => {
       expect(stat.sd(items.numberArray))
           .to.equal(fx.sd.expected);
     });
-    it('should function correctly with maps of numbers', () => {
-      expect(stat.sd(items.numberMap))
-          .to.equal(fx.sd.expected);
-    });
     it('should function correctly with arrays of objects', () => {
       expect(stat.sd(items.objectArray, accessor))
-          .to.equal(fx.sd.expected);
-    });
-    it('should function correctly with maps of numbers', () => {
-      expect(stat.sd(items.objectMap, accessor))
           .to.equal(fx.sd.expected);
     });
   });
@@ -133,16 +105,8 @@ describe('stat', () => {
       expect(stat.rms(items.numberArray))
           .to.equal(fx.rms.expected);
     });
-    it('should function correctly with maps of numbers', () => {
-      expect(stat.rms(items.numberMap))
-          .to.equal(fx.rms.expected);
-    });
     it('should function correctly with arrays of objects', () => {
       expect(stat.rms(items.objectArray, accessor))
-          .to.equal(fx.rms.expected);
-    });
-    it('should function correctly with maps of objects', () => {
-      expect(stat.rms(items.objectMap, accessor))
           .to.equal(fx.rms.expected);
     });
   });
@@ -160,32 +124,16 @@ describe('stat', () => {
       expect(stat.median(items.odd.numberArray))
           .to.equal(fx.median.odd.expected);
     });
-    it('should function correctly with odd sized maps of numbers', () => {
-      expect(stat.median(items.odd.numberMap))
-          .to.equal(fx.median.odd.expected);
-    });
     it('should function correctly with odd sized arrays of objects', () => {
       expect(stat.median(items.odd.objectArray, accessor))
-          .to.equal(fx.median.odd.expected);
-    });
-    it('should function correctly with odd sized maps of objects', () => {
-      expect(stat.median(items.odd.objectMap, accessor))
           .to.equal(fx.median.odd.expected);
     });
     it('should function correctly with even sized arrays of numbers', () => {
       expect(stat.median(items.even.numberArray))
           .to.equal(fx.median.even.expected);
     });
-    it('should function correctly with even sized maps of numbers', () => {
-      expect(stat.median(items.even.numberMap))
-          .to.equal(fx.median.even.expected);
-    });
     it('should function correctly with even sized arrays of objects', () => {
       expect(stat.median(items.even.objectArray, accessor))
-          .to.equal(fx.median.even.expected);
-    });
-    it('should function correctly with even sized maps of objects', () => {
-      expect(stat.median(items.even.objectMap, accessor))
           .to.equal(fx.median.even.expected);
     });
   });
@@ -195,16 +143,8 @@ describe('stat', () => {
       expect(stat.standardize(items.numberArray))
           .to.eql(fx.standardize.expected);
     });
-    it('should function correctly with maps of numbers', () => {
-      expect(stat.standardize(items.numberMap))
-          .to.eql(fx.standardize.expected);
-    });
     it('should function correctly with arrays of objects', () => {
       expect(stat.standardize(items.objectArray, accessor))
-          .to.eql(fx.standardize.expected);
-    });
-    it('should function correctly with maps of objects', () => {
-      expect(stat.standardize(items.objectMap, accessor))
           .to.eql(fx.standardize.expected);
     });
   });
