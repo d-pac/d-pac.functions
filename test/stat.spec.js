@@ -20,7 +20,7 @@ function createFixtures(objectMap) {
     numberMap: _.reduce(objectMap, (memo, item, key) => {
       memo[key] = accessor(item);
       return memo;
-    })
+    }, {})
   };
 }
 
@@ -147,5 +147,12 @@ describe('stat', () => {
       expect(stat.standardize(items.objectArray, accessor))
           .to.eql(fx.standardize.expected);
     });
+    it('should allow using a setter', ()=>{
+      stat.standardize(items.objectArray, accessor, (item, value)=>{
+        item.standardized = value;
+      });
+      const values = items.objectArray.map((item)=>item.standardized);
+      expect(values).to.eql(fx.standardize.expected);
+    })
   });
 });

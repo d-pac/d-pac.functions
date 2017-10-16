@@ -289,7 +289,8 @@ calculate standard scores of z scores: z= (x - mu)/sigma
 **Parameters**
 
 -   `collection` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** set of numbers (optional, default `[]`)
--   `f` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** (optional) function used to retrieve the value (optional, default `returnValue`)
+-   `getter` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** (optional) function used to retrieve the value (optional, default `returnValue`)
+-   `setter` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)?** (optional) function used to set the standardized value. Obviously could have side-effects when used. (optional, default `null`)
 
 **Examples**
 
