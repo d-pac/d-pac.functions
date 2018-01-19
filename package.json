@@ -21,7 +21,8 @@
     "test": "mocha",
     "test-cov": "istanbul cover _mocha",
     "docs": "documentation readme lib -f md --section=API",
-    "lint": "eslint lib tests && echo 'Linting finished!'"
+    "lint": "eslint lib tests && echo 'Linting finished!'",
+    "build:es5": "babel ./lib/stat.js -o ./es5/stat.js --presets=es2015;babel ./lib/pm.js -o ./es5/pm.js --presets=es2015"
   },
   "keywords": [
     "d-pac",
@@ -31,6 +32,8 @@
   "license": "GPL-3.0",
   "dependencies": {},
   "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-preset-es2015": "6.24.1",
     "documentation": "^5.2.2",
     "eslint": "2.13.1",
     "eslint-config-prototypers": "0.2.0",
@@ -42,6 +45,6 @@
     "require-directory": "2.1.1"
   },
   "engines": {
-    "node": "^6.9.5"
+    "node": ">=6.9.5"
   }
 }
