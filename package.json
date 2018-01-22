@@ -16,7 +16,8 @@
   "files": [
     "lib",
     "index.js",
-    "es5.js"
+    "es5.js",
+    "es5"
   ],
   "scripts": {
     "test": "mocha",
